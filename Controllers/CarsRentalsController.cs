@@ -6,17 +6,17 @@ namespace RetakeTest1.Controllers;
 [ApiController]
 public class CarsRentalsController : ControllerBase
 {
-    private CarsAndRentalsRepo _carsAndRentalsRepo;
+    private ClientsAndRentalsRepo _clientsAndRentalsRepo;
 
-    public CarsRentalsController(CarsAndRentalsRepo carsAndRentalsRepo)
+    public CarsRentalsController(ClientsAndRentalsRepo clientsAndRentalsRepo)
     {
-        _carsAndRentalsRepo = carsAndRentalsRepo;
+        _clientsAndRentalsRepo = clientsAndRentalsRepo;
     }
 
     [HttpGet("api/clients/{clientID}")]
     public async Task<IActionResult> GetById(int clientID)
     {
-       var CarWithRentals= _carsAndRentalsRepo.GetClientWithRentalsAsync(clientID);
+       var CarWithRentals= _clientsAndRentalsRepo.GetClientWithRentalsAsync(clientID);
 
        return Ok(CarWithRentals);
     }
@@ -25,7 +25,7 @@ public class CarsRentalsController : ControllerBase
     public async Task<IActionResult> AddClientWithRental(ClientAndRentalDTO clientAndRentalDTO)
     {
        
-            var clientId = await _carsAndRentalsRepo.AddClientWithRentalAsync(clientAndRentalDTO);
+            var clientId = await _clientsAndRentalsRepo.AddClientWithRentalAsync(clientAndRentalDTO);
             return Ok(new { ClientId = clientId });
         
         

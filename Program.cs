@@ -7,7 +7,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<CarsAndRentalsRepo>();
+builder.Services.AddScoped<ClientsAndRentalsRepo>();
 
 var app = builder.Build();
 

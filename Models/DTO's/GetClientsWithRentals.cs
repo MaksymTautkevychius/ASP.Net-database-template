@@ -2,7 +2,7 @@
 
 namespace RetakeTest1.DTO_s;
 
-public class Clients
+public class GetClientsWithRentals
 {
   
     public int id;
