@@ -105,9 +105,9 @@ namespace CarRentalAPI.Repositories
             throw new Exception("Car is not exist");
         }
 
-        // Insert client if it does not exist
-        var clientID = clientAndRentalDTO.ID; // Assuming clientAndRentalDTO.ID is the existing client ID
-        if (clientID == 0) // Assuming 0 is a placeholder value; adjust as per your logic
+        
+        var clientID = clientAndRentalDTO.ID; 
+        if (clientID == 0) 
         {
             using var insertClientCommand = new SqlCommand(insertClientQuery, sqlConnection, transaction);
             insertClientCommand.Parameters.AddWithValue("@FirstName", clientAndRentalDTO.FirstName);
@@ -116,7 +116,7 @@ namespace CarRentalAPI.Repositories
             clientID = Convert.ToInt32(await insertClientCommand.ExecuteScalarAsync());
         }
 
-        // Insert rental
+    
         var totalDays = (clientAndRentalDTO.DateTo - clientAndRentalDTO.DateFrom).Days + 1;
 
         var getPricePerDayQuery = @"

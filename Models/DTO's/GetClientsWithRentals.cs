@@ -5,7 +5,7 @@ namespace RetakeTest1.DTO_s;
 public class GetClientsWithRentals
 {
   
-    public int id;
+    public int id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string address { get; set; }
