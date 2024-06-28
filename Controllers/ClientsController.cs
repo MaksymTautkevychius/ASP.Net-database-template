@@ -5,11 +5,11 @@ using RetakeTest1.DTO_s;
 namespace RetakeTest1.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class CarsRentalsController : ControllerBase
+public class ClientsController : ControllerBase
 {
     private ClientsAndRentalsRepo _carsAndRentalsRepo;
 
-    public CarsRentalsController(ClientsAndRentalsRepo carsAndRentalsRepo)
+    public ClientsController(ClientsAndRentalsRepo carsAndRentalsRepo)
     {
         _carsAndRentalsRepo = carsAndRentalsRepo;
     }
