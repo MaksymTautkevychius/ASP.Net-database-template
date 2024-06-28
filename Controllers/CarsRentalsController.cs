@@ -3,29 +3,30 @@ using Microsoft.AspNetCore.Mvc;
 using RetakeTest1.DTO_s;
 
 namespace RetakeTest1.Controllers;
+[Route("api/[controller]")]
 [ApiController]
 public class CarsRentalsController : ControllerBase
 {
-    private ClientsAndRentalsRepo _clientsAndRentalsRepo;
+    private ClientsAndRentalsRepo _carsAndRentalsRepo;
 
-    public CarsRentalsController(ClientsAndRentalsRepo clientsAndRentalsRepo)
+    public CarsRentalsController(ClientsAndRentalsRepo carsAndRentalsRepo)
     {
-        _clientsAndRentalsRepo = clientsAndRentalsRepo;
+        _carsAndRentalsRepo = carsAndRentalsRepo;
     }
 
-    [HttpGet("api/clients/{clientID}")]
+    [HttpGet("{clientID}")]
     public async Task<IActionResult> GetById(int clientID)
     {
-       var CarWithRentals= _clientsAndRentalsRepo.GetClientWithRentalsAsync(clientID);
+       var CarWithRentals= _carsAndRentalsRepo.GetClientWithRentalsAsync(clientID);
 
        return Ok(CarWithRentals);
     }
     
-    [HttpPost("api/clients")]
+    [HttpPost]
     public async Task<IActionResult> AddClientWithRental(ClientAndRentalDTO clientAndRentalDTO)
     {
        
-            var clientId = await _clientsAndRentalsRepo.AddClientWithRentalAsync(clientAndRentalDTO);
+            var clientId = await _carsAndRentalsRepo.AddClientWithRentalAsync(clientAndRentalDTO);
             return Ok(new { ClientId = clientId });
         
         

@@ -51,20 +51,20 @@ namespace CarRentalAPI.Repositories
                 {
                     getClientWithRentals = new GetClientsWithRentals
                     {
-                        id = reader.GetInt32(reader.GetOrdinal("ID")),
+                        Id = reader.GetInt32(reader.GetOrdinal("ID")),
                         FirstName = reader.GetString(reader.GetOrdinal("FirstName")),
                         LastName = reader.GetString(reader.GetOrdinal("LastName")),
-                        address = reader.GetString(reader.GetOrdinal("Address")),
+                        Address = reader.GetString(reader.GetOrdinal("Address")),
                         CarsRentalsList = new List<GetClientsWithRentals.CarsRentals>()
                     };
                 }
                 getClientWithRentals.CarsRentalsList.Add(new GetClientsWithRentals.CarsRentals
                 {
-                    vin = reader.GetString(reader.GetOrdinal("VIN")),
-                    color = reader.GetString(reader.GetOrdinal("Color")),
-                    model = reader.GetString(reader.GetOrdinal("Model")),
-                    dateFrom = reader.GetDateTime(reader.GetOrdinal("DateFrom")),
-                    dateTo = reader.GetDateTime(reader.GetOrdinal("DateTo")),
+                    Vin = reader.GetString(reader.GetOrdinal("VIN")),
+                    Color = reader.GetString(reader.GetOrdinal("Color")),
+                    Model = reader.GetString(reader.GetOrdinal("Model")),
+                    DateFrom = reader.GetDateTime(reader.GetOrdinal("DateFrom")),
+                    DateTo = reader.GetDateTime(reader.GetOrdinal("DateTo")),
                     TotalPrice = reader.GetInt32(reader.GetOrdinal("TotalPrice"))
                 });
             }
