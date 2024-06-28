@@ -58,7 +58,6 @@ namespace CarRentalAPI.Repositories
                         CarsRentalsList = new List<GetClientsWithRentals.CarsRentals>()
                     };
                 }
-
                 getClientWithRentals.CarsRentalsList.Add(new GetClientsWithRentals.CarsRentals
                 {
                     vin = reader.GetString(reader.GetOrdinal("VIN")),
@@ -95,7 +94,7 @@ namespace CarRentalAPI.Repositories
     using var transaction = sqlConnection.BeginTransaction();
     try
     {
-        // Check if car exists
+     
         using var checkCarCommand = new SqlCommand(checkCarQuery, sqlConnection, transaction);
         checkCarCommand.Parameters.AddWithValue("@CarID", clientAndRentalDTO.ID);
         var carExists = (int)await checkCarCommand.ExecuteScalarAsync() > 0;
